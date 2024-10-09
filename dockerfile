@@ -1,14 +1,11 @@
-# Use a lightweight Linux image
-FROM alpine:latest
+# Use a lightweight Python image
+FROM python:3.9-alpine
 
 # Set the working directory in the container
 WORKDIR /app
 
-# Create an output folder
-RUN mkdir -p output
+# Copy the Python script into the container
+COPY output_script.py .
 
-# Create a simple text file inside the output folder
-RUN echo "Hello, Docker!" > output/output.txt
-
-# Command to display the contents of the file
-CMD ["cat", "output/output.txt"]
+# Run the Python script when the container launches
+CMD ["python", "output_script.py"]
