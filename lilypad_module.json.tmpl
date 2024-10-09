@@ -1,0 +1,34 @@
+{
+  "machine": {
+    "gpu": 0,
+    "cpu": 1000,
+    "ram": 100
+  },
+  "job": {
+    "APIVersion": "V1beta1",
+    "Spec": {
+      "Deal": {
+        "Concurrency": 1
+      },
+      "Docker": {
+        "Entrypoint": [
+          "cat",
+          "/app/output.txt"
+        ],
+        "Image": "noryev/test-output:latest",
+      },
+      "Engine": "Docker",
+      "Network": {
+        "Type": "None"
+      },
+      "PublisherSpec": {
+        "Type": "IPFS"
+      },
+      "Resources": {
+        "GPU": ""
+      },
+      "Timeout": 600,
+      "Verifier": "Noop"
+    }
+  }
+}
