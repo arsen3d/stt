@@ -1,27 +1,29 @@
 import os
+import logging
+
+# Configure logging
+logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 
 def main():
-    print("Starting script execution")
+    logging.info("Starting script execution")
     
     # Create the output directory
-    output_dir = "output"
-    print(f"Attempting to create directory: {output_dir}")
+    output_dir = "/outputs"
     os.makedirs(output_dir, exist_ok=True)
+    logging.info(f"Created output directory: {output_dir}")
     
     # Create a text file with the message
-    file_path = os.path.join(output_dir, "hello.txt")
-    print(f"Attempting to create file: {file_path}")
-    with open(file_path, "w") as f:
+    output_path = os.path.join(output_dir, "hello.txt")
+    with open(output_path, "w") as f:
         f.write("Hello from Lilypad")
-    
-    print(f"File creation attempted. Checking if file exists: {os.path.exists(file_path)}")
+    logging.info(f"Text file created and saved as {output_path}")
     
     # List contents of the output directory
-    print(f"Contents of {output_dir}:")
-    print(os.listdir(output_dir))
+    logging.info(f"Contents of {output_dir}:")
+    logging.info(os.listdir(output_dir))
 
     # Print current working directory
-    print(f"Current working directory: {os.getcwd()}")
+    logging.info(f"Current working directory: {os.getcwd()}")
 
 if __name__ == "__main__":
     main()
