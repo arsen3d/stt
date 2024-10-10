@@ -12,8 +12,8 @@
       },
       "Docker": {
         "Entrypoint": [
-          "cat",
-          "/app/output/"
+          "python",
+          "output_script.py"
         ],
         "Image": "noryev/test-output:latest"
       },
@@ -28,7 +28,14 @@
         "GPU": ""
       },
       "Timeout": 600,
-      "Verifier": "Noop"
+      "Verifier": "Noop",
+      "Outputs": [
+        {
+          "Name": "output",
+          "StorageSource": "IPFS",
+          "Path": "/outputs"
+        }
+      ]
     }
   }
 }
