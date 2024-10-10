@@ -4,7 +4,7 @@ def main():
     print("Starting script execution")
     
     # Create the output directory
-    output_dir = "/app/output"
+    output_dir = "output"
     print(f"Attempting to create directory: {output_dir}")
     os.makedirs(output_dir, exist_ok=True)
     
@@ -19,6 +19,9 @@ def main():
     # List contents of the output directory
     print(f"Contents of {output_dir}:")
     print(os.listdir(output_dir))
+
+    # Print current working directory
+    print(f"Current working directory: {os.getcwd()}")
 
 if __name__ == "__main__":
     main()
